@@ -19,7 +19,7 @@ class GodotRemoteConfig : public Reference {
     int godotInstanceId;
     GodotRemoteConfig *instance;
     FIRRemoteConfig *remoteConfig;
-    long cacheExpiration;
+    int cacheExpiration;
 
 protected:
     static void _bind_methods();
@@ -28,7 +28,7 @@ public:
 
     void init(int instanceId);
     void fetch();
-    void setCacheExpiration(long cacheExpiration);
+    void setCacheExpiration(int cacheExpiration);
     String getStringValue(const String &key);
     int getLongValue(const String &key);
     bool getBooleanValue(const String &key);

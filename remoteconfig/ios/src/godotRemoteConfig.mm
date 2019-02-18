@@ -49,7 +49,7 @@ void GodotRemoteConfig::fetch() {
     }];
 }
 
-void GodotRemoteConfig::setCacheExpiration(long expirationDuration) {
+void GodotRemoteConfig::setCacheExpiration(int expirationDuration) {
     cacheExpiration = expirationDuration;
 }
 
