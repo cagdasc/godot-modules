@@ -1,6 +1,20 @@
 # godot-remote-config
 Firebase Remote Config module Android and iOS implementation for Godot Engine.
 
+## Compile
+Copy `remoteconfig` directory to `godot/modules`.
+
+__Android:__
+
+    user@host:~/godot$ scons -j8 platform=android target=release_debug
+    user@host:~/godot$ scons -j8 platform=android target=release_debug android_arch=x86
+    user@host:~/godot$ cd platform/android/java
+    user@host:~/godot/platform/android/java$ ./gradlew build
+
+__iOS:__
+
+    user@host:~/godot$ scons -j8 platform=iphone target=debug
+
 ## Configuration
 Add default values to `android/res/xml/remote_config.xml` or `ios/src/RemoteConfigDefaults.plist`
 
