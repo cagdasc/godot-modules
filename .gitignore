@@ -152,4 +152,10 @@ iOSInjectionProject/
 # for projects that use SCons for building: http://http://www.scons.org/
 .sconsign.dblite
 
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
 # End of https://www.gitignore.io/api/scons,android,objective-c
