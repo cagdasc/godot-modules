@@ -4,9 +4,10 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface CLLocationImpl: NSObject <CLLocationManagerDelegate> {
-    bool initialized = NO;
-    bool locationUpdatesStart = NO;
+    bool initialized;
+    bool locationUpdateStart;
     int instanceId;
+    CLLocationManager *locationManager;
 
 }
 

@@ -1,7 +1,7 @@
 Import('env')
 
 sources = [
-           'register_types.cpp',
+           'register_types.mm',
            'ios/src/godotLocationManager.mm',
            'ios/src/cllocationimpl.mm'
            ]

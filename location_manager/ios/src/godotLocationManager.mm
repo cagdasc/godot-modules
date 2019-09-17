@@ -20,18 +20,16 @@ void GodotLocationManager::init(int instanceId) {
     }
     initialized = true;
     godotInstanceId = instanceId;
-    cllocation_impl_ptr = [CLLocationManager alloc];
-    [cllocation_impl_ptr init: instanceId];
-
-    
+    cllocation_impl = [CLLocationImpl alloc];
+    [cllocation_impl init: instanceId];
 }
 
 void GodotLocationManager::startLocationUpdates(int p_priority, int p_max_wait_time) {
-    [cllocation_impl_ptr startLocationUpdates];
+    [cllocation_impl startLocationUpdates];
 }
 
 void GodotLocationManager::stopLocationUpdates() {
-    [cllocation_impl_ptr stopLocationUpdates];
+    [cllocation_impl stopLocationUpdates];
 }
 
 void GodotLocationManager::_bind_methods() {

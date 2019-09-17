@@ -1,5 +1,5 @@
 #import "cllocationimpl.h"
-#include "reference.h"
+#include "core/reference.h"
 
 @implementation CLLocationImpl
 
@@ -10,26 +10,26 @@
 - (void)init:(int)instance_id {
     instanceId = instance_id;
 
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    locationManager = [[CLLocationManager alloc] init];
     switch ([CLLocationManager authorizationStatus]) {
         case kCLAuthorizationStatusNotDetermined:
             [locationManager requestWhenInUseAuthorization];
-            initialize = NO;
+            initialized = NO;
             break;
         case kCLAuthorizationStatusDenied:
         case kCLAuthorizationStatusRestricted: {
-            initialize = NO;
+            initialized = NO;
             break;
         }
         case kCLAuthorizationStatusAuthorizedAlways:
         case kCLAuthorizationStatusAuthorizedWhenInUse:
-        initialize = YES;
+        initialized = YES;
             break;
     }
 }
 
 - (void) startLocationUpdates {
-    if (locationUpdateStart)
+    if (!initialized || locationUpdateStart)
 		return;
 
 	switch ([CLLocationManager authorizationStatus]) {
@@ -40,9 +40,8 @@
 		}
 		case kCLAuthorizationStatusAuthorizedAlways:
 		case kCLAuthorizationStatusAuthorizedWhenInUse:
-			CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 			locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-			locationManager.delegate = ((AppDelegate *)[[UIApplication sharedApplication] delegate]);
+			locationManager.delegate = self;
 			[locationManager startUpdatingLocation];
 			locationUpdateStart = YES;
 			NSLog(@"Location update started.");
@@ -53,9 +52,8 @@
 
 - (void) stopLocationUpdates {
     if (locationUpdateStart) {
-		CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 		[locationManager stopUpdatingLocation];
-		locationUpdateStart = false;
+		locationUpdateStart = NO;
 		NSLog(@"Location update stopped.");
 	}
     
@@ -66,7 +64,7 @@
 
     Dictionary ret;
 
-	ret["longitute"] = lastLoc.coordinate.longitute;
+	ret["longitude"] = lastLoc.coordinate.longitude;
 	ret["latitude"]  = lastLoc.coordinate.latitude;
 	ret["horizontal_accuracy"] = lastLoc.horizontalAccuracy;
 	ret["vertical_accuracy"] = lastLoc.verticalAccuracy;
@@ -77,7 +75,7 @@
     Variant args[VARIANT_ARG_MAX];
     args[0] = ret;
 	Object *obj = ObjectDB::get_instance(instanceId);
-    obj->call_deferred("_on_location_permission_result", args[0], args[1], args[2], args[3], args[4]);
+    obj->call_deferred("_on_location_results", ret);
 }
 
 @end

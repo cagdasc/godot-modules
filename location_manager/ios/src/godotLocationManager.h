@@ -1,15 +1,14 @@
 #ifndef GODOT_LOCATION_MANAGER_H
 #define GODOT_LOCATION_MANAGER_H
 
-#include <version_generated.gen.h>
-
-#include "reference.h"
+#include "core/reference.h"
+#include "cllocationimpl.h"
 
 #ifdef __OBJC__
 @class CLLocationImpl;
-typedef CLLocationImpl *cllocation_impl;
+typedef CLLocationImpl *cllocation_impl_ptr;
 #else
-typedef void *cllocation_impl;
+typedef void *cllocation_impl_ptr;
 
 #endif
 
@@ -21,7 +20,7 @@ class GodotLocationManager : public Reference {
     bool initialized;
     int godotInstanceId;
     GodotLocationManager *instance;
-    cllocation_impl *cllocation_impl_ptr;
+    cllocation_impl_ptr cllocation_impl;
     
 
 protected:
