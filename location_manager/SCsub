@@ -1,10 +1,10 @@
-
 Import('env')
 
 sources = [
-           'register_types.mm'
+           'register_types.cpp',
+           'ios/src/godotLocationManager.mm',
+           'ios/src/cllocationimpl.mm'
            ]
 
 if (env["platform"] == "iphone"):
     env.add_source_files(env.modules_sources, sources)
-

@@ -8,3 +8,7 @@ def configure(env):
 		env.android_add_java_dir("android")
 		env.android_add_to_permissions("android/AndroidPermissionsChunk.xml")
 		env.disable_module()
+	
+	if env['platform'] == "iphone":
+		env.Append(FRAMEWORKPATH=['modules/location_manager/ios/lib'])
+		env.Append(LINKFLAGS=['-ObjC', '-framework','CoreLocation'])
