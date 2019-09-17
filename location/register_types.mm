@@ -4,9 +4,9 @@
 #include "register_types.h"
 #include "ios/src/godotLocationManager.h"
 
-void register_location_manager_types() {
+void register_location_types() {
     Engine::get_singleton()->add_singleton(Engine::Singleton("LocationManager", memnew(GodotLocationManager)));
 }
 
-void unregister_location_manager_types() {
+void unregister_location_types() {
 }

@@ -10,5 +10,5 @@ def configure(env):
 		env.disable_module()
 	
 	if env['platform'] == "iphone":
-		env.Append(FRAMEWORKPATH=['modules/location_manager/ios/lib'])
+		env.Append(FRAMEWORKPATH=['modules/location/ios/lib'])
 		env.Append(LINKFLAGS=['-ObjC', '-framework','CoreLocation'])
