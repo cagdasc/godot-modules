@@ -2,9 +2,9 @@
 Godot game engine Android and iOS modules
 ## Modules
 
-| Module Name | Android                                    | iOS                                                          |   |   |
-|-------------|--------------------------------------------|--------------------------------------------------------------|---|---|
-| location    | Fused Location Provider API implementation | CLLocationManager implementation from CoreLocation.framework |   |   |
+| Module Name | Android                                    | iOS                                                          |
+|-------------|--------------------------------------------|--------------------------------------------------------------|
+| location    | Fused Location Provider API implementation | CLLocationManager implementation from CoreLocation.framework |
 
 
     Copyright 2019 Cagdas Caglak
