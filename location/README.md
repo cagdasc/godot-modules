@@ -1,6 +1,7 @@
 # LocationManager
 
 Android and iOS location implementation. You can create location based games with this module.
+
 __IMPORTANT:__ This module is only compatable with Godot 3.1 and 3.1.1
 
 ## Usage
