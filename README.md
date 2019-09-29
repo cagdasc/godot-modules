@@ -6,7 +6,6 @@ Godot game engine Android and iOS modules
 |-------------|--------------------------------------------|--------------------------------------------------------------|
 | location    | Fused Location Provider API implementation | CLLocationManager implementation from CoreLocation.framework |
 
-
     Copyright 2019 Cagdas Caglak
 
     Licensed under the Apache License, Version 2.0 (the "License");
