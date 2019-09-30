@@ -29,7 +29,7 @@ public class GodotLocationManager extends Godot.SingletonBase {
         return new GodotLocationManager(activity);
     }
 
-    private void init(int instance_id) {
+    public void init(int instance_id) {
         if (mActivity == null)
             return;
 
