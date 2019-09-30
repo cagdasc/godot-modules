@@ -39,7 +39,7 @@ func _on_location_permission_result(permission, granted)
 func _on_location_results(location):
     print(str(loc.longitude))
     print(str(loc.latitude))
-    print(str(loc.horizaontal_accuracy))
+    print(str(loc.horizontal_accuracy))
     print(str(loc.vertical_accuracy))
     print(str(loc.altitude))
     print(str(loc.speed))
