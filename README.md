@@ -1,10 +1,13 @@
 # godot-modules
+
 Godot game engine Android and iOS modules
+
 ## Modules
 
 | Module Name | Android                                    | iOS                                                          |
 |-------------|--------------------------------------------|--------------------------------------------------------------|
 | location    | Fused Location Provider API implementation | CLLocationManager implementation from CoreLocation.framework |
+| permissionmanager    | Android runtime permission manager implementation | in-progress |
 
     Copyright 2019 Cagdas Caglak
 
