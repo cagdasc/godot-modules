@@ -3,8 +3,10 @@ def can_build(plat):
 
 def configure(env):
 	if (env['platform'] == 'android'):
-		env.android_add_dependency("implementation 'com.google.firebase:firebase-core:16.0.6'")
-		env.android_add_dependency("implementation 'com.google.firebase:firebase-config:16.1.3'")
+		env.android_add_gradle_plugin("apply plugin: 'com.google.gms.google-services'")
+		env.android_add_gradle_classpath("'com.google.gms:google-services:4.3.2'")
+		env.android_add_dependency("implementation 'com.google.firebase:firebase-core:17.2.0'")
+		env.android_add_dependency("implementation 'com.google.firebase:firebase-config:17.0.0'")
 		env.android_add_java_dir("android")
 		env.android_add_res_dir("android/res")
 		env.disable_module()

@@ -23,18 +23,19 @@ public class GodotRemoteConfig extends Godot.SingletonBase {
 		this.instance_id = instance_id;
 		mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 		FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+				.setMinimumFetchIntervalInSeconds(3600)
 				.setDeveloperModeEnabled(BuildConfig.DEBUG).build();
 		mFirebaseRemoteConfig.setConfigSettings(configSettings);
-		mFirebaseRemoteConfig.setDefaults(R.xml.remote_config);
+		mFirebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config);
 	}
 
 	public void fetch() {
 		activity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				mFirebaseRemoteConfig.fetch(cacheExpiration).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+				mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(activity, new OnCompleteListener<Boolean>() {
 					@Override
-					public void onComplete(@NonNull Task<Void> task) {
+					public void onComplete(@NonNull Task<Boolean> task) {
 						if (task.isSuccessful()) {
 							Log.d("GodotRemoteConfig", "Fetch Successful");
 							mFirebaseRemoteConfig.activateFetched();
